@@ -7,6 +7,7 @@ use App\Models\Ticket;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\TicketRequest;
 use Illuminate\Support\Facades\Auth;
 
 ;
@@ -39,7 +40,7 @@ class TicketController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(TicketRequest $request)
     { 
         $ext = $request->file('attachment')->getClientOriginalExtension();
         $image_name = time(). '.' .$ext;
