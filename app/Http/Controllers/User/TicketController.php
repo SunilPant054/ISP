@@ -52,8 +52,9 @@ class TicketController extends Controller
             'content' => $request->content,
             'attachment' => $image_name,
         ]); 
-        return response(['message'=>'Ticket Created'],
-        Response::HTTP_CREATED);
+        return response()->json($ticket, Response::HTTP_CREATED);
+        // return response(['message'=>'Ticket Created'],
+        // Response::HTTP_CREATED);
     }
 
     /**
