@@ -1,8 +1,9 @@
 <?php
 
-use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\User\TicketController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,4 +25,7 @@ Route::post('/login', [UserController::class, 'login']);
 
 Route::group(['middleware' => ['auth:sanctum']], function (){
     Route::post('/logout', [UserController::class, 'logout']);
+
+    //Tickets
+    Route::apiResource('/tickets', TicketController::class);
 });
